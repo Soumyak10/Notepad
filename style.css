@@ -1,14 +1,18 @@
 body{
-  background-color: #C6EBC5;
-  /* background-image: url("bg.jpeg"); */
+  /* background-color: #C6EBC5; */
+  background-image: url("bg.jpg");
   background-repeat: no-repeat, repeat;
+  background-size: auto;
+  background-attachment: fixed;
+  overflow: hidden;
 }
 
 .container{
 display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-
+justify-content: center;
+align-items: center;
+flex-direction: column;
+height: 100vh;
 }
 
 h3 {
@@ -19,14 +23,33 @@ h3 {
 
 
 .add-btn{
-  border-radius:50%;
-  margin-bottom: 19px;
-  width: 85px;
-  height: 85px;
-  background-color: lightcyan;
+  border-radius: 50%;
+    margin-bottom: 19px;
+    width: 110px;
+    height: 97px;
+    border: 0px;
+    position: absolute;
+    bottom: 0px;
+    right:0px;
+    background-color: transparent;
+}
+.add-btn img{
+  background-color: transparent;
+  border-radius: 50%;
 }
 
-.add{
+.add-btn img:hover{
+  box-shadow: 5px 2px 5px red;
+  transform:scale(1.15)
+}
+
+.container form:focus{
+  border-color: blue;
+}
+
+
+
+/* .add{
   display:flex;
   flex-direction: column;
   justify-content:center;
@@ -41,13 +64,73 @@ h3 {
   padding: 6px;
   border-radius:10px;
   transition: width 1s ease-in-out , height 1s ease-in-out;
-}
+} */
 
 /* .add-1{
   
 } */
 
-.tile{
+/* .container form{
+  height: 800px;
+  width: 800px;
+  
+
+} */
+
+#form{
+  border: 2px solid black;
+  display: block;
+  background-color: white;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 10px;
+}
+
+#form :focus{
+  border-color: blue;
+}
+
+.title{
+  margin: 5px 5px 10px 10px;
+  padding: 5px 5px;
+
+}
+
+input{
+  height: 60px;
+  width: 360px;
+  font-size: x-large;
+  padding-left: 15px;
+}
+
+.description{
+  margin: 5px 5px 10px 10px;
+  padding: 5px 5px;
+}
+
+textarea{
+  height: 250px;
+    width: 360px;
+    font-size: xx-large;
+    padding-left: 15px;
+}
+
+#add-note{
+  font-size: xx-large;
+  margin: 10px 10px;
+}
+
+.save-btn{
+  margin: 20px;
+  margin-top: 5px;
+    height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    font-size: x-large;
+}
+
+
+.note{
   border: 2px solid;
   gap: 10% ;
   background-color: white;
@@ -61,24 +144,23 @@ h3 {
   /* font-family: 'Trebuchet MS', sans-serif; */
 } 
 
+/* .note li{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+} */
 
-.tile> div{
+.note> div{
   margin-left:10px;
   font-family: 'Trebuchet MS', sans-serif;
 }
 
-.tile:hover {
-  -ms-transform: scale(1.1); /* IE 9 */
-  -webkit-transform: scale(1.1); /* Safari 3-8 */
-  transform: scale(1.1); 
+.note:hover {
+  /* transform: scale(1.1);  */
   box-shadow: 4px 6px 5px #42855B;
 }
 
-/* .tile:hover , .add:hover{
-  box-shadow: 4px 3px 2px #42855B;
-  height: 253px;
-  width: 253px;
-} */
 
 footer{
   margin-top:36%;

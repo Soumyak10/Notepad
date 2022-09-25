@@ -1,16 +1,17 @@
 let newNote = document.querySelector('.add');
 const form = document.querySelector('form');
-const formTitle = document.querySelector('header p')
+const formTitle = document.querySelector('.content p')
 const noteTitle = document.querySelector('input')
 const noteDescription = document.querySelector('textarea');
-const save = document.querySelector('button');
-const closeIcon = document.querySelector('header i');
+const save = document.querySelector(".save-btn");
+const closeIcon = document.querySelector('i');
 const months = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
 const notes = JSON.parse(localStorage.getItem("notes") || "[]");
 let isUpdate = false, updateId;
 
 newNote.addEventListener("click", function () {
+    document.querySelector("#form").style.visibility = "visible";
     formTitle.textContent = "Add Note";
     save.textContent = "Save";
     form.classList.add("show");
@@ -26,6 +27,7 @@ function deleteNote(noteId) {
     notes.splice(noteId, 1);
     localStorage.setItem("notes", JSON.stringify(notes));
     showNotes();
+    // console.log("delete function is being called");
 }
 
 function updateNote(noteId, title, description) {
@@ -42,9 +44,14 @@ function copyNote(noteId, title, description) {
     navigator.clipboard.writeText(description);
 }
 
-// function makeBold(noteId, title, description){
-//     title.style.
-// }
+function makeBold(noteId, title, description){
+    noteId.title.innerHtml = `<strong>${noteId.title}</strong>`;
+    noteId.description.innerHtml = `<strong>${noteId.description}</strong>`;
+
+    // console.log("delete function is being called");
+}
+
+
 
 function showNotes() {
     if (!notes) return;
@@ -61,7 +68,9 @@ function showNotes() {
                             <div class="settings">
                                 <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                                 <ul class="menu">
-                                    <li onclick="updateNote(${id}, '${note.title}', '${filterDesc}')">Edit</li>
+                                    <li onclick="updateNote(${id}, '${note.title}', '${filterDesc}')">
+                                    Edit
+                                    </li>
                                     <li onclick="deleteNote(${id}), '${note.title}', '${filterDesc}'">Delete</li>
                                     <li onclick="makeBold(${id}), '${note.title}', '${filterDesc}'">Bold</li>
                                     <li onclick="copyNote(${id})">Copy</li>
@@ -93,7 +102,7 @@ save.addEventListener("click", e => {
         }
         localStorage.setItem("notes", JSON.stringify(notes));
         showNotes();
-        closeIcon.click();
+        document.querySelector("#form").style.visibility = "hidden";
     }
 });
 
