@@ -71,9 +71,7 @@ function showNotes() {
   notes.forEach((note, id) => {
     let filterDesc = note.description.replaceAll("\n", "<br/>");
     let liTag = `
-    <li class="note" id='note-${id}' onclick="updateNote(${id}, '${
-      note.title
-    }', '${filterDesc}')">
+    <li class="note" id='note-${id}' >
         <div class="details">
             <p>${note.title}</p>
             <span>${
@@ -88,7 +86,9 @@ function showNotes() {
                 <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
                 <ul class="menu">
                     <li>
-                        <button>
+                        <button onclick="updateNote(${id}, '${
+                          note.title
+                        }', '${filterDesc}')">
                             Edit
                         </button>
                     </li>
