@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/da33121d9d.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Notepad</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>Notepad</title>
-</head>
-
-<body>
-  <main class="container">
-    <div id="form">
-      <div class="content">
-        <div>
+  <body>
+    <main class="container">
+      <div id="form">
+        <div class="content">
           <p id="add-note"></p>
-          <i class="uil uil-times"></i>
+          <i class="fa-solid fa-xmark"></i>
+          <button>
+            <img
+              class="close-icon"
+              src="https://cdn-icons-png.flaticon.com/512/2976/2976286.png"
+            />
+          </button>
+          <!-- <i class="uil uil-times"></i> -->
         </div>
         <form>
           <div class="title">
-            <input type="text" placeholder="Title">
+            <input type="text" placeholder="Title" />
           </div>
           <div class="description">
-            <textarea  placeholder="Start writing notes here........"></textarea>
+            <textarea placeholder="Start writing notes here........"></textarea>
           </div>
-          <button class="save-btn"> Save</button>
+          <button class="save-btn">Save</button>
         </form>
       </div>
-    </div>
-    <div class="content">
-      <li class="add">
-        <button class="add-btn">
-        <img src = "https://www.iconpacks.net/icons/4/free-yellow-plus-icon-11980.png">
-        </button>
-      </li>
-    </div>
-  </main>
-  <script src="script.js"></script>
-</body>
-
+      <div class="content">
+        <li class="add">
+          <button class="add-btn">
+            <img
+              src="https://www.iconpacks.net/icons/4/free-yellow-plus-icon-11980.png"
+            />
+          </button>
+        </li>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
 </html>
