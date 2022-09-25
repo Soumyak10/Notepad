@@ -1,6 +1,6 @@
 let newNote = document.querySelector(".add");
 const form = document.querySelector("#form");
-const formTitle = document.querySelector(".content p");
+const formTitle = document.querySelector(".content-heading p");
 const noteTitle = document.querySelector("input");
 const noteDescription = document.querySelector("textarea");
 const save = document.querySelector(".save-btn");
@@ -75,11 +75,7 @@ function showNotes() {
             <h4 style="text-align:center;">
               ${note.title}
             </h4>
-            <span>${
-              filterDesc.length > 20
-                ? filterDesc.slice(0, 20) + "..."
-                : filterDesc
-            }</span>
+            <span>${filterDesc}</span>
         </div>
         <div class="bottom-content">
             <div>

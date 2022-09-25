@@ -81,12 +81,22 @@ h3 {
   padding: 5px 5px;
 
 }
+.content-heading{
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 4px;
+}
+
 
 input {
   height: 60px;
   width: 360px;
   font-size: x-large;
   padding-left: 15px;
+}
+
+.details span{
+  text-overflow: ellipsis;
 }
 
 .description {
@@ -122,7 +132,7 @@ textarea {
   gap: 10%;
   background-color: white;
   margin: 10px;
-  height: 250px;
+  min-height: 250px;
   width: 250px;
   padding: 6px;
   border-radius: 10px;
@@ -163,6 +173,13 @@ button{
   cursor: pointer;
 }
 
+.bottom-content{
+  border-top: 2px solid black;
+  padding-top: 15px;
+  align-items: center;
+  justify-content: space-around;
+}
+
 footer {
   margin-top: 36%;
 }
@@ -186,14 +203,20 @@ li {
 }
 
 
-.bottom-content{
-  border-top: 2px solid black;
-  padding-top: 15px;
-  align-items: center;
-  justify-content: space-around;
-}
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {}
+@media only screen and (max-width: 600px) {
+  .content{
+    margin-top: 20px;
+    justify-content: center;
+  }
+  textarea{
+    height: 180px;
+    width: 280px;
+  }
+  input{
+    width: 280px;
+  }
+}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {}
@@ -206,3 +229,9 @@ li {
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {}
+
+.close-btn{
+  background: none;
+  border: none;
+  /* border-radius: 50%; */
+}
