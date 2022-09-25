@@ -10,13 +10,15 @@ const months = ["January", "February", "March", "April", "May", "June", "July",
 const notes = JSON.parse(localStorage.getItem("notes") || "[]");
 let isUpdate = false, updateId;
 
-newNote.addEventListener("click", function () {
+newNote.addEventListener("click", note);
+
+
+function note() {
     document.querySelector("#form").style.visibility = "visible";
     formTitle.textContent = "Add Note";
     save.textContent = "Save";
     form.classList.add("show");
-});
-
+}
 closeIcon.addEventListener("click", function () {
     isUpdate = false;
     noteTitle.value = noteDescription.value = "";
@@ -86,7 +88,10 @@ save.addEventListener("click", e => {
     e.preventDefault();
     let title = noteTitle.value.trim(),
         description = noteDescription.value.trim();
-
+    if (title=='' || description==''){
+        alert('Field cannot be empty.');
+        newNote.addEventListener("click", note);
+    }
     if (title || description) {
         let currentDate = new Date(),
             month = months[currentDate.getMonth()],
@@ -102,6 +107,7 @@ save.addEventListener("click", e => {
         }
         localStorage.setItem("notes", JSON.stringify(notes));
         showNotes();
+        noteTitle.value = noteDescription.value = "";
         document.querySelector("#form").style.visibility = "hidden";
     }
 });
