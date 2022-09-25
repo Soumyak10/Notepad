@@ -14,7 +14,7 @@ newNote.addEventListener("click", note);
 
 
 function note() {
-    document.querySelector("#form").style.visibility = "visible";
+    document.querySelector("#form").style.display = "block";
     formTitle.textContent = "Add Note";
     save.textContent = "Save";
     form.classList.add("show");
@@ -108,7 +108,7 @@ save.addEventListener("click", e => {
         localStorage.setItem("notes", JSON.stringify(notes));
         showNotes();
         noteTitle.value = noteDescription.value = "";
-        document.querySelector("#form").style.visibility = "hidden";
+        document.querySelector("#form").style.display = "none";
     }
 });
 

@@ -82,10 +82,10 @@ h3 {
 
 #form {
   border: 2px solid black;
-  display: block;
+  display: none;
   background-color: rgb(202, 243, 215);
   text-align: center;
-  visibility: hidden;
+  /* visibility: hidden; */
   border-radius: 10px;
 }
 
