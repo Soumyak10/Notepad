@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Notepad</title>
 </head>
-<body>
-  <div id = "app">
-    <div>
-        <button>Add Note</button>
-        <button>Delete Note</button>
-        <button>Show All Notes</button>
-    </div>
 
-    <div>
-        <input class = "titles" placeholder="Title">
-        <textarea class = "notes">Write Notes</textarea>
+<body>
+  <main class="container">
+    <div id="form">
+      <div class="content">
+        <header>
+          <p></p>
+          <i class="uil uil-times"></i>
+        </header>
+        <form>
+          <div class="title">
+            <label>Title</label>
+            <input type="text">
+          </div>
+          <div class="description">
+            <label>Description</label>
+            <textarea></textarea>
+          </div>
+          <button></button>
+        </form>
+      </div>
     </div>
-</div>
+    <div class="content">
+      <li class="add">
+        <button class="add-btn">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+        <div>Add Notes!</div>
+      </li>
+    </div>
+  </main>
+  <script src="script.js"></script>
 </body>
+
 </html>
