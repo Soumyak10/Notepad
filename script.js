@@ -1,10 +1,10 @@
 let newNote = document.querySelector(".add");
-const form = document.querySelector("form");
+const form = document.querySelector("#form");
 const formTitle = document.querySelector(".content p");
 const noteTitle = document.querySelector("input");
 const noteDescription = document.querySelector("textarea");
 const save = document.querySelector(".save-btn");
-const closeIcon = document.querySelector("i");
+const closeIcon = document.querySelector(".close-icon");
 const months = [
   "January",
   "February",
@@ -26,22 +26,21 @@ let isUpdate = false,
 newNote.addEventListener("click", note);
 
 function note() {
-  document.querySelector("#form").style.display = "block";
+  form.classList.add("form-show");
   formTitle.textContent = "Add Note";
   save.textContent = "Save";
-  form.classList.add("show");
 }
 closeIcon.addEventListener("click", function () {
   isUpdate = false;
   noteTitle.value = noteDescription.value = "";
-  form.classList.remove("show");
+
+  form.classList.remove("form-show");
 });
 
 function deleteNote(noteId) {
   notes.splice(noteId, 1);
   localStorage.setItem("notes", JSON.stringify(notes));
   showNotes();
-  // console.log("delete function is being called");
 }
 
 function updateNote(noteId, title, description) {
@@ -73,7 +72,9 @@ function showNotes() {
     let liTag = `
     <li class="note" id='note-${id}' >
         <div class="details">
-            <p>${note.title}</p>
+            <h4 style="text-align:center;">
+              ${note.title}
+            </h4>
             <span>${
               filterDesc.length > 20
                 ? filterDesc.slice(0, 20) + "..."
@@ -81,35 +82,26 @@ function showNotes() {
             }</span>
         </div>
         <div class="bottom-content">
-            <span>${note.date}</span>
-            <div class="settings">
+            <div>
+              <span>${note.time}</span>
+              <span>${note.date}</span>
+            </div>
+            <div>
                 <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
-                <ul class="menu">
-                    <li>
-                        <button onclick="updateNote(${id}, '${
-                          note.title
-                        }', '${filterDesc}')">
-                            Edit
-                        </button>
-                    </li>
-                    <li> 
-                        <button onclick="copyNote(${id}, '${
-      note.title
-    }', '${filterDesc}')">
-                            Copy
-                        </button>        
-                    </li>
-                    <li> 
-                        <button onclick="makeBold(${id})">
-                            Bold
-                        </button>
-                    </li>
-                    <li> 
-                        <button onclick="deleteNote(${id})">
-                            Delete
-                        </button>
-                    </li>
-                </ul>
+                <div class="menu">
+                  <button onclick="updateNote(${id}, '${note.title}', '${filterDesc}')">
+                      <img height =20px width = 20px src="https://www.iconpacks.net/icons/3/free-content-icon-9813.png">
+                  </button>
+                  <button onclick="copyNote(${id}, '${note.title}', '${filterDesc}')">
+                      <img height = 20px width = 20px src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx81OEaDzpOV9SwXuYblF3u6R4XXZF4RZEfA&usqp=CAU">
+                  </button>
+                  <button onclick="makeBold(${id})">
+                      <img height = 20px width = 20px src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTraRl_S3a883tG3m7Q1kn6U4DzxrI7uieMtw&usqp=CAU"
+                  </button>
+                  <button onclick="deleteNote(${id})">
+                      <img height=20px width = 20px src="https://www.iconpacks.net/icons/3/free-icon-trash-can-10412.png">
+                  </button>
+                </div>
             </div>
         </div>
     </li>`;
@@ -129,9 +121,10 @@ save.addEventListener("click", (e) => {
     let currentDate = new Date(),
       month = months[currentDate.getMonth()],
       day = currentDate.getDate(),
-      year = currentDate.getFullYear();
+      year = currentDate.getFullYear(),
+      time = currentDate.toTimeString().slice(0,9);
 
-    let noteInfo = { title, description, date: `${month} ${day}, ${year}` };
+    let noteInfo = { title, description, date: `${month} ${day}, ${year}`,time };
     if (!isUpdate) {
       notes.push(noteInfo);
     } else {
@@ -141,7 +134,7 @@ save.addEventListener("click", (e) => {
     localStorage.setItem("notes", JSON.stringify(notes));
     showNotes();
     noteTitle.value = noteDescription.value = "";
-    document.querySelector("#form").style.display = "none";
+    form.classList.remove("form-show");
   }
 });
 

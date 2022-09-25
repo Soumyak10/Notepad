@@ -1,10 +1,10 @@
 body {
-  /* background-color: #C6EBC5; */
   background-image: url("bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  overflow: hidden;
+  overflow-y: auto;
+  margin: 0;
   height: 100%;
   width: 100%;
 }
@@ -17,10 +17,11 @@ body {
   height: 100vh;
 }
 .content{
-  /* overflow-y: auto; */
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  overflow-y: auto;
+
 }
 
 h3 {
@@ -36,7 +37,7 @@ h3 {
   width: 110px;
   height: 97px;
   border: 0px;
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   right: 0px;
   background-color: transparent;
@@ -48,7 +49,7 @@ h3 {
 }
 
 .add-btn img:hover {
-  box-shadow: 5px 2px 5px red;
+  box-shadow: 7px 3px 7px white;
   transform: scale(1.15)
 }
 
@@ -57,35 +58,6 @@ h3 {
 }
 
 
-
-/* .add{
-  display:flex;
-  flex-direction: column;
-  justify-content:center;
-  align-items:center;
-  border: 2px solid;
-  gap: 10% ;
-  background-color: white;
-  margin:10px;
-
-  height: 250px;
-  width:250px;
-  padding: 6px;
-  border-radius:10px;
-  transition: width 1s ease-in-out , height 1s ease-in-out;
-} */
-
-/* .add-1{
-  
-} */
-
-/* .container form{
-  height: 800px;
-  width: 800px;
-  
-
-} */
-
 #form {
   border: 2px solid black;
   display: none;
@@ -93,6 +65,11 @@ h3 {
   text-align: center;
   border-radius: 10px;
   position: absolute;
+}
+
+.form-show{
+  display:flex !important;
+  flex-direction: column;
 }
 
 #form :focus {
@@ -153,6 +130,7 @@ textarea {
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  justify-content: space-between;
   /* transition: width 1s ease-in-out , height 1s ease-in-out; */
   /* font-family: 'Trebuchet MS', sans-serif; */
 }
@@ -160,13 +138,6 @@ textarea {
   
   width: 40px;
 }
-
-/* .note li{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-} */
 
 .note>div {
   margin-left: 10px;
@@ -177,6 +148,14 @@ textarea {
   /* transform: scale(1.1);  */
   box-shadow: 4px 6px 5px #42855B;
 }
+.bottom-content{
+  border-top: 1px solid black;
+  display: flex;
+}
+.bottom-content span{
+  font-size: 0.8em;
+}
+
 .bold{
   font-weight: 700;
 }
@@ -191,3 +170,39 @@ footer {
 li {
   list-style-type: none;
 }
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  width: 105px;
+  justify-content: flex-end;
+}
+.menu button{
+  margin: 5px;
+}
+
+.menu{
+  margin-left:15px;
+}
+
+
+.bottom-content{
+  border-top: 2px solid black;
+  padding-top: 15px;
+  align-items: center;
+  justify-content: space-around;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
