@@ -59,10 +59,49 @@ function copyNote(description) {
 }
 
 function makeBold(noteId) {
-  let note = document.getElementById(`note-${noteId}`);
+  // let note = document.getElementById(`note-${noteId}`);
 
-  note.firstElementChild.classList.toggle("bold");
+  // note.firstElementChild.classList.toggle("bold");
+      var sel = window.getSelection(); 
+      if (sel.rangeCount) {
+        var e = document.createElement('span');
+        e.innerHTML = sel.toString();
+        e.classList.toggle("bold");
+
+        var range = sel.getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(e); 
+      }
 }
+
+function underlineNote(noteId) {
+      var sel = window.getSelection(); 
+      if (sel.rangeCount) {
+        var e = document.createElement('span');
+        e.innerHTML = sel.toString();
+        e.style = 'text-decoration:' + 'underline' + ';'; 
+
+        var range = sel.getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(e); 
+      }
+}
+
+function italicNote(noteId) {
+      var sel = window.getSelection(); 
+      if (sel.rangeCount) {
+        var e = document.createElement('span');
+        e.innerHTML = sel.toString();
+        e.style = 'font-style:' + 'italic' + ';'; 
+
+        var range = sel.getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(e); 
+      }
+}
+
+
+
 
 function showNotes() {
   if (!notes) return;
@@ -89,13 +128,19 @@ function showNotes() {
                       <img height =20px width = 20px src="https://www.iconpacks.net/icons/3/free-content-icon-9813.png">
                   </button>
                   <button onclick="copyNote('${filterDesc}')">
-                      <img height = 20px width = 20px src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx81OEaDzpOV9SwXuYblF3u6R4XXZF4RZEfA&usqp=CAU">
+                      <img height = 25px width = 25px src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx81OEaDzpOV9SwXuYblF3u6R4XXZF4RZEfA&usqp=CAU">
                   </button>
                   <button onclick="makeBold(${id})">
                       <img height = 20px width = 20px src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTraRl_S3a883tG3m7Q1kn6U4DzxrI7uieMtw&usqp=CAU"
                   </button>
                   <button onclick="deleteNote(${id})">
                       <img height=20px width = 20px src="https://www.iconpacks.net/icons/3/free-icon-trash-can-10412.png">
+                  </button>
+                  <button onclick="underlineNote(${id})">
+                  <img height=20px width = 20px src="text-underline.png">
+                  </button>
+                  <button onclick="italicNote(${id})">
+                  <img height=20px width = 20px src="italic.png">
                   </button>
                 </div>
             </div>

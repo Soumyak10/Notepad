@@ -24,7 +24,6 @@
 
 body {
   background-image: url("bg.jpg");
-/* background-color: #faeee7; */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -40,7 +39,6 @@ header h2{
   color: #33272a;
   text-align: center;
   background-color: #ff8ba7;
-  /* opacity: 0.4; */
   margin: 0 0 10px 0;
   padding: 10px;
 }
@@ -183,7 +181,6 @@ textarea {
   margin: 10px;
   min-height: 250px;
   max-width: 250px;
-  /* overflow-x: auto; */
   padding: 6px;
   border-radius: 10px;
   transition: transform .1s;
@@ -191,11 +188,10 @@ textarea {
   flex-direction: column;
   cursor: pointer;
   justify-content: space-between;
-  /* transition: width 1s ease-in-out , height 1s ease-in-out; */
   font-family: 'Trebuchet MS', sans-serif;
+  overflow: scroll;
 }
 .close-icon{
-  
   width: 40px;
 }
 
@@ -205,12 +201,12 @@ textarea {
 }
 
 .note:hover {
-  /* transform: scale(1.1);  */
   box-shadow: 4px 6px 5px #ffc6c7;
 }
 .bottom-content{
   border-top: 1px solid black;
   display: flex;
+  padding:0px;
 }
 .bottom-content span{
   font-size: 0.8em;
@@ -219,6 +215,7 @@ textarea {
 .bold{
   font-weight: 700;
 }
+
 button{
   cursor: pointer;
 }
@@ -241,7 +238,7 @@ li {
 .menu {
   display: flex;
   flex-wrap: wrap;
-  width: 105px;
+  width: 150px;
   justify-content: flex-end;
 }
 .menu button{
@@ -273,17 +270,6 @@ li {
   }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
 
 .close-btn{
   background: none;
