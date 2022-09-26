@@ -181,6 +181,7 @@ textarea {
   margin: 10px;
   min-height: 250px;
   max-width: 250px;
+  max-height: 310px;
   padding: 6px;
   border-radius: 10px;
   transition: transform .1s;
@@ -254,6 +255,12 @@ li {
   margin-left:15px;
 }
 
+.close-btn{
+  background: none;
+  border: none;
+  /* border-radius: 50%; */
+}
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -271,8 +278,3 @@ li {
 }
 
 
-.close-btn{
-  background: none;
-  border: none;
-  /* border-radius: 50%; */
-}

@@ -58,7 +58,7 @@ function copyNote(description) {
   alert("Note has been copied");
 }
 
-function makeBold(noteId) {
+function makeBold() {
   // let note = document.getElementById(`note-${noteId}`);
 
   // note.firstElementChild.classList.toggle("bold");
@@ -72,9 +72,12 @@ function makeBold(noteId) {
         range.deleteContents();
         range.insertNode(e); 
       }
+      else{
+        alert("Please Select Text to make text bold")
+      }
 }
 
-function underlineNote(noteId) {
+function underlineNote() {
       var sel = window.getSelection(); 
       if (sel.rangeCount) {
         var e = document.createElement('span');
@@ -85,9 +88,12 @@ function underlineNote(noteId) {
         range.deleteContents();
         range.insertNode(e); 
       }
+      else{
+        alert("Please Select Text to underline text")
+      }
 }
 
-function italicNote(noteId) {
+function italicNote() {
       var sel = window.getSelection(); 
       if (sel.rangeCount) {
         var e = document.createElement('span');
@@ -97,6 +103,9 @@ function italicNote(noteId) {
         var range = sel.getRangeAt(0);
         range.deleteContents();
         range.insertNode(e); 
+      }
+      else{
+        alert("Please Select Text to make text italic")
       }
 }
 
