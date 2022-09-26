@@ -53,9 +53,9 @@ function updateNote(noteId, title, description) {
   save.textContent = "Save";
 }
 
-function copyNote(noteId, title, description) {
+function copyNote(description) {
   navigator.clipboard.writeText(description);
-  console.log(description);
+  alert("Note has been copied");
 }
 
 function makeBold(noteId) {
@@ -88,7 +88,7 @@ function showNotes() {
                   <button onclick="updateNote(${id}, '${note.title}', '${filterDesc}')">
                       <img height =20px width = 20px src="https://www.iconpacks.net/icons/3/free-content-icon-9813.png">
                   </button>
-                  <button onclick="copyNote(${id}, '${note.title}', '${filterDesc}')">
+                  <button onclick="copyNote('${filterDesc}')">
                       <img height = 20px width = 20px src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx81OEaDzpOV9SwXuYblF3u6R4XXZF4RZEfA&usqp=CAU">
                   </button>
                   <button onclick="makeBold(${id})">
@@ -111,16 +111,22 @@ save.addEventListener("click", (e) => {
     description = noteDescription.value.trim();
   if (title == "" || description == "") {
     alert("Field cannot be empty.");
-    newNote.addEventListener("click", note);
+    return;
   }
+  newNote.addEventListener("click", note);
   if (title || description) {
     let currentDate = new Date(),
       month = months[currentDate.getMonth()],
       day = currentDate.getDate(),
       year = currentDate.getFullYear(),
-      time = currentDate.toTimeString().slice(0,9);
+      time = currentDate.toTimeString().slice(0, 9);
 
-    let noteInfo = { title, description, date: `${month} ${day}, ${year}`,time };
+    let noteInfo = {
+      title,
+      description,
+      date: `${month} ${day}, ${year}`,
+      time,
+    };
     if (!isUpdate) {
       notes.push(noteInfo);
     } else {
